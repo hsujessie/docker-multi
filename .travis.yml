@@ -11,13 +11,13 @@ script:
   - docker run -e CI=true hsujessie/react-test npm test
 
 after_success:
-  - docker build -t hsujessie/multi-client ./client
-  - docker build -t hsujessie/multi-nginx ./nginx
-  - docker build -t hsujessie/multi-server ./server
-  - docker build -t hsujessie/multi-worker ./worker
+  - docker build -t j9686/multi-client ./client
+  - docker build -t j9686/multi-nginx ./nginx
+  - docker build -t j9686/multi-server ./server
+  - docker build -t j9686/multi-worker ./worker
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push  hsujessie/multi-client
-  - docker push  hsujessie/multi-nginx
-  - docker push  hsujessie/multi-server
-  - docker push  hsujessie/multi-worker
+  - docker push  j9686/multi-client
+  - docker push  j9686/multi-nginx
+  - docker push  j9686/multi-server
+  - docker push  j9686/multi-worker
